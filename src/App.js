@@ -1,21 +1,15 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { SocketContext, socket } from "./context/socket";
+import TableView from "./components/TableView";
+import "./App.css";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+function App() {
+  return (
+    <SocketContext.Provider value={socket}>
+      <div id="app" className="bg-slate-900 justify-center flex ">
+     <TableView/>
       </div>
-    );
-  }
+    </SocketContext.Provider>
+  );
 }
 
 export default App;
