@@ -1,4 +1,5 @@
-import io from "socket.io-client";
+import socketio from "socket.io-client";
 
-export const socket = io.connect(process.env.SOCKET_URL);
+const SOCKET_URL = "wss://fstream.binance.com";
 
+export const socket = socketio.connect(SOCKET_URL);

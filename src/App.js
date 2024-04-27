@@ -1,14 +1,14 @@
-import { SocketContext, socket } from "./context/socket";
+import React from "react";
 import TableView from "./components/TableView";
-import "./App.css";
+import { SocketContextProvider } from "./context/socket";
 
 function App() {
   return (
-    <SocketContext.Provider value={socket}>
+    <SocketContextProvider>
       <div id="app" className="bg-slate-900 justify-center flex ">
-     <TableView/>
+        <TableView />
       </div>
-    </SocketContext.Provider>
+    </SocketContextProvider>
   );
 }
 

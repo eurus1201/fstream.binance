@@ -1,5 +1,16 @@
-import React from "react";
-import socketio from "socket.io-client";
+import React, { createContext } from "react";
+import io from "socket.io-client";
 
-export const socket = socketio.connect(process.env.SOCKET_URL);
-export const SocketContext = React.createContext();
+const SOCKET_URL = "wss://fstream.binance.com";
+
+export const SocketContext = createContext();
+
+export const SocketContextProvider = ({ children }) => {
+  const socket = io.connect(SOCKET_URL);
+
+  return (
+    <SocketContext.Provider value={socket}>
+      {children}
+    </SocketContext.Provider>
+  );
+};
